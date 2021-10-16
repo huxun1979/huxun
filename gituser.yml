@@ -1,4 +1,5 @@
-security:
-    user:
-      name: huxun
-      password: huxun
+spring:
+    security:
+        user:
+            name: huxun
+            password: huxun
