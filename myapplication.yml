@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /huxun
+eureka:
+  client:
+    #是否将自己注册在eurekaserver上，默认是true
+    register-with-eureka: true
+    #是否从eurekaserver中获取注册信息，默认为true，单节点不需要同步其他的eurekaserver节点的数据
+    fetch-registry: true
+    #设置当前eurekaserver的访问地址
+    service-url:
+      #由于注册中心需要使用security验证，故此连接的url需要“用户名:密码@url”
+      defaultZone: http://huxun:huxun@localhost:8099/eureka/
+  instance:
+    #微服务的id名，方便消费者访问
+    instance-id: client-id
+    #是否将自己的ip写入到eureka注册中心中，
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+spring:
+  application:
+    #客户端在注册中心的唯一id
+    name: client-id
+  security:
+    user:
+      name: huxun
+      password: huxun
